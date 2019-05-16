@@ -155,7 +155,7 @@ export default registerBlockType(
                          </div>
                     ) : (
 
-                       <div className="clb-icon-card-static">
+                       <div className="clb-icon-card-static" style={ { backgroundColor: backgroundColor } }>
                            <strong>{iconCardTitle}</strong>
                       </div>
 
@@ -169,10 +169,19 @@ export default registerBlockType(
 
             const { iconCardTitle, iconCardLink, icon, iconSize, iconStyle, backgroundColor } = props.attributes;
 
+            function getContrastYIQ(hexcolor){
+
+                   var r = parseInt(hexcolor.substr(1,2),16);
+                   var g = parseInt(hexcolor.substr(3,2),16);
+                   var b = parseInt(hexcolor.substr(5,2),16);
+                   var yiq = ((r*299)+(g*587)+(b*114))/1000;
+                   return (yiq >= 128) ? 'dark' : 'light';
+               }
+
             return (
 
-                 <div className="clb-icon-card-area" >
-                      <a href={iconCardLink} className="button full clb-icon-card" style={ { backgroundColor: backgroundColor } }>
+                 <div className={ `clb-icon-card-area foreground-text-${getContrastYIQ(backgroundColor)}` } style={ { backgroundColor: backgroundColor } } >
+                      <a href={iconCardLink} className="clb-icon-card-link">
                                <div className="clb-card-icon"><i className={ `${iconStyle} fa-${icon} fa-${iconSize}` }></i></div>
                                <h3 className="clb_card__title">{iconCardTitle}</h3>
                          </a>
