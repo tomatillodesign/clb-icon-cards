@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Custom Block - Button Grid
+ * Plugin Name: Custom Block - Icon Cards
  * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: Creates a grid of buttons on the page. A custom Gutenberg plugin created via create-guten-block.
+ * Description: Creates a grid of large icon cards. Requires FontAwesome to be installed.
  * Author: Chris Liu-Beers
  * Author URI: https://www.tomatillodesign.com/
  * Version: 1.0.0
