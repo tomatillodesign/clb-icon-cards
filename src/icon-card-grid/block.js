@@ -39,7 +39,7 @@ const { Fragment } = wp.element;
  * Register example block
  */
 export default registerBlockType(
-    'cgb/button-grid',
+    'cgb/icon-card-grid',
     {
         title: __( 'Icon Card Grid', 'clb-icon-card-grid' ),
         description: __( 'Add a responsive icon card grid to your page ', 'clb-icon-card-grid'),
@@ -47,7 +47,7 @@ export default registerBlockType(
 	   icon: {
 	        foreground: '#555d66',
 	        background: 'transparent',
-	        src: 'dashicons-admin-page',
+	        src: 'admin-page',
 	   },
         keywords: [ __( 'icon' ), __( 'grid' ), __( 'card' ) ],
         attributes: {
@@ -66,7 +66,7 @@ export default registerBlockType(
                  <Fragment>
                  <InspectorControls>
                    <PanelBody
-                       title={ __( 'Button Grid Settings', 'clb-icon-card-grid' ) }
+                       title={ __( 'Icon Card Grid Settings', 'clb-icon-card-grid' ) }
                    >
                        <PanelRow>
                        <RangeControl
@@ -85,7 +85,7 @@ export default registerBlockType(
                { isSelected ? (
 
                     <div className="icon-card-grid-selected">
-                    <h4>Button Grid</h4>
+                    <h4>Icon Card Grid</h4>
                     <InnerBlocks
                          allowedBlocks={['cgb/clb-icon-card']}
                     />
@@ -117,7 +117,7 @@ export default registerBlockType(
 
             return (
 
-                 <div className={ 'button-grid' + ' columns-' + columnNumber} >
+                 <div className={ 'icon-card-grid' + ' columns-' + columnNumber} >
                     <InnerBlocks.Content />
                 </div>
 

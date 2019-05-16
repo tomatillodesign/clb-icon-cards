@@ -38,7 +38,7 @@ const { Fragment } = wp.element;
  * Register example block
  */
 export default registerBlockType(
-    'cgb/clb-button',
+    'cgb/clb-icon-card',
     {
         title: __( 'Icon Card', 'clb-icon-card' ),
         description: __( 'Add an icon card to your grid ', 'clb-icon-card'),
@@ -47,16 +47,16 @@ export default registerBlockType(
 	   icon: {
              foreground: '#555d66',
 	        background: 'transparent',
-	        src: 'admin-links',
+	        src: 'media-video',
 	   },
         keywords: [ __( 'icon' ), __( 'card' ), __( 'grid' ) ],
         attributes: {
-          buttonText: {
+          iconCardTitle: {
 			source: 'html',
-			selector: '.clb-button__text',
+			selector: '.clb_card__title',
 			// default: __( 'Card Title' ),
 		},
-          buttonLink: {
+          iconCardLink: {
                 type: 'string',
                 source: 'attribute',
                 attribute: 'href',
@@ -64,15 +64,15 @@ export default registerBlockType(
             },
           backgroundColor: {
               type: 'string',
-              default: '#0066cc'
+              default: '#555d66'
           },
         },
         edit: props => {
-            const { attributes: { buttonText, buttonLink, backgroundColor },
+            const { attributes: { iconCardTitle, iconCardLink, backgroundColor },
                 className, setAttributes, isSelected } = props;
 
-            const onChangeButtonText = buttonText => { setAttributes( { buttonText } ) };
-            const onChangeButtonLink = buttonLink => { setAttributes( { buttonLink } ) };
+            const onChangeIconCardTitle = iconCardTitle => { setAttributes( { iconCardTitle } ) };
+            const onChangeIconCardLink = iconCardLink => { setAttributes( { iconCardLink } ) };
 
             return (
 			  <Fragment>
@@ -102,22 +102,22 @@ export default registerBlockType(
 
                     <div className ={ className + "-selected" } >
                         <TextControl
-                            className='clb-button__text'
-                            label={ 'Button Text' }
-                            value={ buttonText }
-                            placeholder={ 'Learn More' }
-                            onChange={ onChangeButtonText }
+                            className='clb_card__title'
+                            label={ 'Icon Card Title' }
+                            value={ iconCardTitle }
+                            placeholder={ 'Your Headline Here' }
+                            onChange={ onChangeIconCardTitle }
                        />
                        <URLInput
-                               className="clb-button__link"
-                               value={ buttonLink }
-                               onChange = { onChangeButtonLink }
+                               className="clb-icon-card__link"
+                               value={ iconCardLink }
+                               onChange = { onChangeIconCardLink }
                            />
                          </div>
                     ) : (
 
-                       <div className="clb-button-static">
-                           <strong>{buttonText}</strong>
+                       <div className="clb-icon-card-static">
+                           <strong>{iconCardTitle}</strong>
                       </div>
 
                             ) }
@@ -128,13 +128,13 @@ export default registerBlockType(
 
         save: props => {
 
-            const { buttonText, buttonLink, backgroundColor } = props.attributes;
+            const { iconCardTitle, iconCardLink, backgroundColor } = props.attributes;
 
             return (
 
-                 <div className="clb-button-area" >
-                      <a href={buttonLink} className="button full clb-button" style={ { backgroundColor: backgroundColor } }>
-                               <div className="clb-button__text">{buttonText}</div>
+                 <div className="clb-icon-card-area" >
+                      <a href={iconCardLink} className="button full clb-icon-card" style={ { backgroundColor: backgroundColor } }>
+                               <div className="clb_card__title">{iconCardTitle}</div>
                          </a>
                     </div>
 
