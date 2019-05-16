@@ -41,19 +41,19 @@ const { Fragment } = wp.element;
 export default registerBlockType(
     'cgb/button-grid',
     {
-        title: __( 'Button Grid', 'clb-button-grid' ),
-        description: __( 'Add a responsive button grid to your page ', 'clb-button-grid'),
+        title: __( 'Icon Card Grid', 'clb-icon-card-grid' ),
+        description: __( 'Add a responsive icon card grid to your page ', 'clb-icon-card-grid'),
         category: 'common',
 	   icon: {
 	        foreground: '#555d66',
 	        background: 'transparent',
-	        src: icon,
+	        src: 'dashicons-admin-page',
 	   },
-        keywords: [ __( 'button' ), __( 'grid' ), __( 'links' ) ],
+        keywords: [ __( 'icon' ), __( 'grid' ), __( 'card' ) ],
         attributes: {
             columnNumber: {
                 type: 'number',
-                default: 2,
+                default: 3,
             },
         },
         edit: props => {
@@ -66,7 +66,7 @@ export default registerBlockType(
                  <Fragment>
                  <InspectorControls>
                    <PanelBody
-                       title={ __( 'Button Grid Settings', 'clb-button-grid' ) }
+                       title={ __( 'Button Grid Settings', 'clb-icon-card-grid' ) }
                    >
                        <PanelRow>
                        <RangeControl
@@ -84,19 +84,19 @@ export default registerBlockType(
 
                { isSelected ? (
 
-                    <div className="button-grid-selected">
+                    <div className="icon-card-grid-selected">
                     <h4>Button Grid</h4>
                     <InnerBlocks
-                         allowedBlocks={['cgb/clb-button']}
+                         allowedBlocks={['cgb/clb-icon-card']}
                     />
                     </div>
 
                             ) : (
 
-                                 <div className="cardset-static">
-                                        <h4>Button Grid</h4>
+                                 <div className="icon-card-grid-static">
+                                        <h4>Icon Card Grid</h4>
                                       <InnerBlocks
-                                          allowedBlocks={['cgb/clb-button']}
+                                          allowedBlocks={['cgb/clb-icon-card']}
                                      />
 
                                 </div>
@@ -110,14 +110,12 @@ export default registerBlockType(
         save: props => {
             const { columnNumber } = props.attributes;
 
-            let frSpacing = '1fr 1fr';
-            if( columnNumber == 1) { frSpacing = '1fr'; }
-            else if( columnNumber == 3) { frSpacing = '1fr 1fr 1fr'; }
-            else if( columnNumber == 4) { frSpacing = '1fr 1fr 1fr 1fr'; }
+            // let frSpacing = '1fr 1fr';
+            // if( columnNumber == 1) { frSpacing = '1fr'; }
+            // else if( columnNumber == 3) { frSpacing = '1fr 1fr 1fr'; }
+            // else if( columnNumber == 4) { frSpacing = '1fr 1fr 1fr 1fr'; }
 
             return (
-
-                 // Try nesting a style for child flip cards, see: https://stackoverflow.com/a/10833154/5369381
 
                  <div className={ 'button-grid' + ' columns-' + columnNumber} >
                     <InnerBlocks.Content />

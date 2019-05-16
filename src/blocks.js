@@ -10,5 +10,5 @@
  */
 
 
-import './clb-button/block.js';
-import './button-grid/block.js';
+import './clb-icon-card/block.js';
+import './icon-card-grid/block.js';

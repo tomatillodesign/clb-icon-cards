@@ -40,16 +40,16 @@ const { Fragment } = wp.element;
 export default registerBlockType(
     'cgb/clb-button',
     {
-        title: __( 'Button (Button Grid Only)', 'clbbutton' ),
-        description: __( 'Add a button to your grid ', 'clbbutton'),
+        title: __( 'Icon Card', 'clb-icon-card' ),
+        description: __( 'Add an icon card to your grid ', 'clb-icon-card'),
         category: 'common',
-        parent: ['cgb/button-grid'],
+        parent: ['cgb/icon-card-grid'],
 	   icon: {
              foreground: '#555d66',
 	        background: 'transparent',
 	        src: 'admin-links',
 	   },
-        keywords: [ __( 'button' ), __( 'link' ), __( 'image' ) ],
+        keywords: [ __( 'icon' ), __( 'card' ), __( 'grid' ) ],
         attributes: {
           buttonText: {
 			source: 'html',
